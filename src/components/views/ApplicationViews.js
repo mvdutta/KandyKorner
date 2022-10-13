@@ -1,5 +1,6 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { LocationList } from "../Locations/LocationList"
+import { ProductList } from "../Products/ProductList"
 
 
 
@@ -13,7 +14,8 @@ export const ApplicationViews = () => {
                     <Outlet />
                 </>
             }>
-                <Route path="Locations" element={ <LocationList /> } />
+                <Route path="locations" element={ <LocationList /> } />
+				<Route path="products" element={ <ProductList /> } />
             </Route>
         </Routes>
     

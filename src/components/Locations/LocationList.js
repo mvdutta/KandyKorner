@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import "./Location.css"
 
 
 export const LocationList = () => {
     const [locations, setLocations] = useState([])
-
-
+  
 
 
     useEffect (() => {
@@ -17,6 +17,7 @@ export const LocationList = () => {
         
     },[]
     )
+
     return (
     <>
         <h1>List of Locations</h1>
@@ -25,7 +26,6 @@ export const LocationList = () => {
             locations.map((location) => {
                 return (
                 <section className="location-list" key={location.id}>
-                    {""}
                 <h2 className>{location.name}</h2>
                 <p>Address: {location.address}</p>
                 <p>Square Footage: {location.squareFeet}</p>
@@ -35,6 +35,6 @@ export const LocationList = () => {
         </div>
     }
 
-    </>)
-
+    </>
+    )
 }
