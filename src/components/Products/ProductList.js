@@ -7,6 +7,7 @@ export const ProductList = () => {
     const [products, setProducts] = useState([])
     const [filteredProducts, setFilteredProducts] = useState([])//This is the display list
     const [topPriced, setTopPriced] = useState([false])
+    const navigate = useNavigate()
 
     const localKandyUser = localStorage.getItem("kandy_user");
     // //this is a string, so needs to be converted to an object using JSON.parse:
@@ -39,7 +40,7 @@ export const ProductList = () => {
     ?<>
     <button onClick={() => {setTopPriced(true);}}>Top Priced</button>
     <button onClick={() => {setTopPriced(false);}}>Show All</button>
-    <button >Add Product</button>
+    <button onClick={()=>{navigate("/addproduct")}} >Add Product</button>
     </>:""
     }
         <h2>List of Products</h2>
