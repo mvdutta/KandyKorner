@@ -7,9 +7,9 @@ export const ProductList = () => {
     const [products, setProducts] = useState([])
     const [filteredProducts, setFilteredProducts] = useState([])
 
-    const localHoneyUser = localStorage.getItem("honey_user");
+    const localKandyUser = localStorage.getItem("kandy_user");
     // //this is a string, so needs to be converted to an object using JSON.parse:
-    const honeyUserObject = JSON.parse(localHoneyUser); //this will now be an object with two keys on it: id and staff
+    const kandyUserObject = JSON.parse(localKandyUser); //this will now be an object with two keys on it: id and staff
 
 
     useEffect (() => {
@@ -22,8 +22,13 @@ export const ProductList = () => {
     },[]
     )
 
-    return (
+    return (       
     <>
+    {kandyUserObject.staff
+    ?<>
+    <button>Top Priced</button>
+    </>:""
+    }
         <h2>List of Products</h2>
         {<div className="product-area">
         {
