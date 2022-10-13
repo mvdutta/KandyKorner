@@ -1,15 +1,31 @@
 .navbar {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: left;
+    justify-content: space-evenly;
+    padding: 20px;
+    /* box-shadow: 4px 5px 10px grey; */
 }
 
+
+.navbar-area {
+    background-color: rgba(176, 189, 189, 0.4);
+    margin-left: -60px;
+    margin-right: -60px;
+    margin-top: -20px;
+  
+}
+    
+
 .navbar__item {
-    flex-basis: 20%;
+    flex-basis: 10%;
     list-style-type: none;
 }
 
+.navbar__link {
+    color: rgb(90, 33, 33);
+}
+/* 
 .navbar__logout {
     margin-left: auto;
-}
+} */
 

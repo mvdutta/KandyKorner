@@ -32,9 +32,9 @@ export const Login = () => {
         <main className="container--login">
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Kandy Korner</h1>
+                    <h1 className="login-header">Kandy Korner</h1>
                     <img src="https://cdn.pixabay.com/photo/2015/10/01/20/33/candy-967740_960_720.jpg" className="home-img"/>
-                    <h2>Please sign in</h2>
+                    <h2 className="login-subheader">Please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputEmail" className="email-text"> Email address </label>
                         <input type="email"

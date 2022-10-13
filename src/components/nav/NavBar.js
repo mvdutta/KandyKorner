@@ -5,6 +5,7 @@ export const NavBar = () => {
     const navigate = useNavigate()
 
     return (
+        <div className="navbar-area">
         <ul className="navbar">
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/locations">Locations</Link>
@@ -22,6 +23,7 @@ export const NavBar = () => {
             </li>
         }
         </ul>
+        </div>
     )
 }
 

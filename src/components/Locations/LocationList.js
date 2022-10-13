@@ -20,15 +20,15 @@ export const LocationList = () => {
 
     return (
     <>
-        <h1>List of Locations</h1>
+        <h1 className="location-header">Locations</h1>
         {<div className="location-area">
         {
             locations.map((location) => {
                 return (
                 <section className="location-list" key={location.id}>
-                <h2 className>{location.name}</h2>
+                <h2 className="location-name">{location.name}</h2>
                 <p>Address: {location.address}</p>
-                <p>Square Footage: {location.squareFeet}</p>
+                <p>Square Footage: {location.squareFeet} sq ft</p>
                 </section> )
             } )
         }

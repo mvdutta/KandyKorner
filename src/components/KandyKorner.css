@@ -1,40 +1,61 @@
-/* Import the google web fonts you want to use */
-@import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
+@import url('https://fonts.googleapis.com/css2?family=Life+Savers:wght@400;700;800&family=Patrick+Hand&display=swap');
 
 /*Typography
 --------------------------------------------------------------*/
 body,
-button,
 input,
 select,
 textarea {
-  color: #e85d17;
-  font-family: "Comfortaa", Arial, sans-serif;
-  font-size: 14px;
+  color: rgb(86, 33, 16, 0.85);
+  font-family: 'Patrick Hand', cursive;
+  font-size: 20px;
   line-height: 1.5;
 }
-
+button {
+  color: #562110;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.5;
+  border: 1px solid rgb(206, 161, 161);
+  border-radius: 3px;
+  padding: 4px;
+  width: 125px;
+  background-color: #f6dcec;
+  margin-bottom: 10px;
+  box-shadow: 5px 3px 8px grey;
+  cursor: pointer;
+}
 body {
     padding: 0 3rem;
-    background-color: rgb(229, 247, 246);
+    background-color: #d0efe9;
+    margin-bottom: 100px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Patua One", serif;
+  font-family: 'Patrick Hand', cursive;
   letter-spacing: 2px;
-}
-
-p {
-  margin-bottom: 1.5em;
 }
 
 .title--main {
   margin-block-end: 0;
 }
-
-.kandy-subheader {
-  font-size: 1.7rem;
-  margin-bottom: 4%;
-  color:rgb(11, 104, 118)
+.kandy-header {
+  font-size: 3.5rem;
+  text-align: center;
 }
 
+.kandy-subheader {
+  font-size: 2.8rem;
+  margin-bottom: 4%;
+  font-weight: bold;
+  color: rgb(212, 40, 112, 0.8);
+  text-align: center;
+}
+
+.welcome-img {
+  width: 20%;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
