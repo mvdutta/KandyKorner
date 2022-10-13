@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 export const ProductForm = () => {
@@ -8,6 +8,13 @@ export const ProductForm = () => {
         price: 0,
         type: ""
     })
+    const [productTypes, setProductTypes] = useState([])
+    useEffect(()=>{
+        fetch('http://localhost:8088/productTypes')
+        .then(res=>res.json)
+        .then(data=>setProductTypes(data))
+        console.log(productTypes)
+    }, [])
   //Use the useNavigation() hook so you can redirect the user to the ticket list
     const navigate = useNavigate()
 
@@ -109,5 +116,3 @@ export const ProductForm = () => {
     )
 }
 
-
-}
