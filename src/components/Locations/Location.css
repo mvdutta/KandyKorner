@@ -1,15 +1,23 @@
 .location-header {
-    font-size: 2.5rem;
+    font-size: 2.6rem;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 .location-name {
     color: rgb(11, 104, 118);
-    font-size: 1.8rem;
+    font-size: 1.9rem;
 }
  h2, p {
     margin-top: -24px;
+    font-size: 21px;
  }
  .location-list {
     margin-bottom: 60px;
     margin-top: 60px;
+ }
+ .location-area {
+    display: flex;
+    justify-content: space-evenly;
  }
 

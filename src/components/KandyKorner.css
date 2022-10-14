@@ -46,16 +46,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .kandy-subheader {
-  font-size: 2.8rem;
-  margin-bottom: 4%;
+  font-size: 2.6rem;
+  margin-bottom: 2%;
   font-weight: bold;
   color: rgb(212, 40, 112, 0.8);
   text-align: center;
 }
 
 .welcome-img {
-  width: 20%;
+  width: 30%;
   display: block;
-  margin-right: auto;
-  margin-left: auto;
+  margin-left: 27%;
+  opacity: 0.8;
+}
+
+.page-divider {
+  padding:30px 0;
+  box-shadow: 0 1em 1em -1em rgba(0, 0, 0, .25);
+
 }
