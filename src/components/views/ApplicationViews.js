@@ -1,7 +1,9 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { LocationList } from "../Locations/LocationList"
+import { ProductContainer } from "../Products/ProductContainer"
 import { ProductForm } from "../Products/ProductForm"
 import { ProductList } from "../Products/ProductList"
+import { ProductSearch } from "../Products/ProductSearch"
 
 //all routes are stored here. Default route path is /
 
@@ -20,7 +22,7 @@ export const ApplicationViews = () => {
                 </>
             }>
                 <Route path="locations" element={ <LocationList /> } />
-				<Route path="products" element={ <ProductList /> } />
+				<Route path="products" element={ <ProductContainer />} />
 				<Route path="addproduct" element={ <ProductForm /> } />
             </Route>
         </Routes>

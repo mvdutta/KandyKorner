@@ -11,8 +11,11 @@
     background-color: rgba(176, 189, 189, 0.4);
     margin-left: -60px;
     margin-right: -60px;
-    margin-top: -20px;
-  
+    margin-top: -20px;  
+    
+}
+li a:hover {
+    color: rgb(182, 22, 169);
 }
     
 
@@ -23,6 +26,7 @@
 
 .navbar__link {
     color: rgb(90, 33, 33);
+    text-decoration: none;
 }
 /* 
 .navbar__logout {

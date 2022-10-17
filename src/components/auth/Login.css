@@ -32,7 +32,7 @@ fieldset {
 }
 
 .form--login > fieldset > input[type="email"] {
-    width: 15.6em;
+    width: 13em;
     margin-top: 10px;
     margin-right: auto;
     margin-left: auto;
@@ -41,7 +41,7 @@ fieldset {
     font-size: 20px;
 }
 .form--login > fieldset > input[type="text"] {
-    width: 16em;
+    width: 12em;
     margin-top: 10px;
     margin-right: auto;
     margin-left: auto;

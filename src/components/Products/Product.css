@@ -15,7 +15,7 @@ button {
 .product-text {
     margin-top: -15px;
     font-size: 1.3rem;
-    margin-top: -25px;
+    margin-top: -20px;
     margin-bottom: 15px;
 }
 
@@ -56,4 +56,14 @@ display: block;
 }
 .product-list {
    flex-basis: 33.3333%;  
+}
+.product-input {
+    width: 19%;
+    padding: 7px;
+    border-style: none;
+    border:1px solid rgb(14, 114, 119);
+}
+.product-search {
+    margin-bottom: 30px;
+    margin-top: 15px;
 }

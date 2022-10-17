@@ -2,12 +2,13 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 export const ProductForm = () => {
-    //Add the correct default properties to the initial state object:
+    //Add default properties to the initial state object: holds user input
     const [product, setProduct] = useState({//automatically gets updated as the user types into the form
         name: "",
         price: "",
         type: ""
     })
+    //get productTypes from database
     const [productTypes, setProductTypes] = useState([])//make new useState variable to store productTypes
     useEffect(()=>{
         fetch('http://localhost:8088/productTypes')//getting productTypes and storing them in productTypes
@@ -17,7 +18,7 @@ export const ProductForm = () => {
         })
         
     }, [])
-  //Use the useNavigation() hook so you can redirect the user to the product list
+  //Use the useNavigation() hook to redirect the user to the product list
     const navigate = useNavigate()
 
     const localKandyUser = localStorage.getItem("kandy_user")
@@ -26,14 +27,14 @@ export const ProductForm = () => {
 
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
-
+        //need productTypeID:
         let productTypeId = 0//creating new variable that will hold productTypeId when new product is entered
         let newProductType ={} //this will be used for creating a new productType if user enters a product type that is not in the database
 
-        // //check whether the entered product type exists in the database
+        // //search among productTypes where productTypes are stored in DB. check whether the entered product type exists in the database
         const matchedProductType = productTypes.find((type)=>type.productType===product.type) ////product.type is the info the user typed into the type field. matchedProductType will be the existing productType that matches what the user entered, and will be "undefined" if the user entered something new
 
-        if (matchedProductType){
+        if (matchedProductType){//if matchedProductType is not undefined:
             productTypeId = matchedProductType.id //use the id of the matching productType
         } else {
             //create a new ProductTypeId, since the entered ProductType doesn't exist

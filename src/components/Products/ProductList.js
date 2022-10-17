@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import "./Product.css"
 
 
-export const ProductList = () => {
+export const ProductList = ({ searchTermState }) => {
     const [products, setProducts] = useState([])
     const [filteredProducts, setFilteredProducts] = useState([])//This is the display list
     const [topPriced, setTopPriced] = useState([false])
@@ -13,7 +13,7 @@ export const ProductList = () => {
     // //this is a string, so needs to be converted to an object using JSON.parse:
     const kandyUserObject = JSON.parse(localKandyUser); //this will now be an object with two keys on it: id and staff
 
-
+  
     useEffect (() => {
         fetch(`http://localhost:8088/products?_sort=name&_order=asc&_expand=productType`)
         .then((res) => res.json())
@@ -34,6 +34,15 @@ export const ProductList = () => {
         }
     }, [topPriced])
 
+    useEffect(
+        () => {
+            const searchedProducts = products.filter(product => {
+              return product.name.toLowerCase().startsWith(searchTermState.toLowerCase())
+            })
+            setFilteredProducts(searchedProducts)
+        }, [searchTermState]
+      )
+
     return (       
     <>
     {kandyUserObject.staff
@@ -42,11 +51,11 @@ export const ProductList = () => {
     <button onClick={() => {setTopPriced(false);}}>Show All</button>
     <button onClick={() => {navigate("/addproduct")}} >Add Product</button>
     </>:""
-    }
+    }     
         <h2 className="product-header">List of Products</h2>
         {<div className="product-area">
         {
-            filteredProducts.map((product) => {
+                filteredProducts.map((product) => {
                 return (
                 <section className="product-list" key={product.id}>
                 <h3 className="product-name">{product.name}</h3>
@@ -55,6 +64,8 @@ export const ProductList = () => {
                 </section> )
             } )
         }
+
+     
         </div>
     }
 
