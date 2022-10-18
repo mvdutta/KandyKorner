@@ -56,6 +56,15 @@ export const ProductList = ({ searchTermState }) => {
         }, [searchTermState]
       )
 
+    const handleClick = (id) => {
+        const locationIds = productLocations.filter((pl) => pl.productId === id).map((filteredPl => filteredPl.locationId))
+        const foundLocations = locations.filter((location) => locationIds.includes(location.id))
+        let locationString = ""
+        for(let loc of foundLocations) {
+            locationString += `Name: ${loc.name}\n Address:  ${loc.address}\n----\n`
+        }
+        window.alert(locationString)
+    }
     return (       
     <>
     {kandyUserObject.staff
@@ -71,7 +80,7 @@ export const ProductList = ({ searchTermState }) => {
                 filteredProducts.map((product) => {
                 return (
                 <section className="product-list" key={product.id}>
-                <h3 className="product-name">{product.name}  { searchTermState === ""? "": <span>locations</span>}</h3>
+                <h3 className="product-name">{product.name}  { searchTermState === ""? "": <span><Link to="" onClick={() => {handleClick(product.id)}}>Locations</Link></span>}</h3>
                
                 <p className="product-text">Price: ${product.price}</p>
                 { searchTermState === ""?
