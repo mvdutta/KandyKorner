@@ -112,11 +112,6 @@ export const ProductForm = () => {
             return  <option key={location.id} value={location.id}>{location.name}</option>
         })
 
-
-
-
-
-
     return (
         <form className="productForm">
             <h2 className="product-form-title">Add New Product</h2>

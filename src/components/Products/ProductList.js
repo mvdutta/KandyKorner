@@ -61,7 +61,7 @@ export const ProductList = ({ searchTermState }) => {
         const foundLocations = locations.filter((location) => locationIds.includes(location.id))
         let locationString = ""
         for(let loc of foundLocations) {
-            locationString += `Name: ${loc.name}\n Address:  ${loc.address}\n----\n`
+            locationString += `Name: ${loc.name}\nAddress: ${loc.address}\n----\n`
         }
         window.alert(locationString)
     }
@@ -80,7 +80,8 @@ export const ProductList = ({ searchTermState }) => {
                 filteredProducts.map((product) => {
                 return (
                 <section className="product-list" key={product.id}>
-                <h3 className="product-name">{product.name}  { searchTermState === ""? "": <span><Link to="" onClick={() => {handleClick(product.id)}}>Locations</Link></span>}</h3>
+                <h3 className="product-name">{product.name}  { searchTermState === ""? "": <span
+                className="product-link"><Link to="" onClick={() => {handleClick(product.id)}}>Show me where</Link></span>}</h3>
                
                 <p className="product-text">Price: ${product.price}</p>
                 { searchTermState === ""?

@@ -5,7 +5,7 @@ export const ProductSearch = ({setterFunction}) => {//this function now has acce
     return (
         <div className="product-search">
         <input className="product-input"
-            onChange={//invoke setterFuntion onChange
+            onChange={//invoke setterFunction onChange
                 (changeEvent) => {
                     setterFunction(changeEvent.target.value)
                 }
