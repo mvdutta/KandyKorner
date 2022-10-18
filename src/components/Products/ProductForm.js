@@ -6,9 +6,11 @@ export const ProductForm = () => {
     const [product, setProduct] = useState({//automatically gets updated as the user types into the form
         name: "",
         price: "",
-        type: ""
+        type: "",
+        location:""
     })
     const [locations, setLocations] = useState([])
+    const [productList, setProductList] = useState([])
     //get productTypes from database
     const [productTypes, setProductTypes] = useState([])//make new useState variable to store productTypes
     useEffect(()=>{
@@ -21,8 +23,13 @@ export const ProductForm = () => {
             .then(res=>res.json())
             .then(data=>{
               setLocations(data)
-              console.log(locations)
           })
+        }).then(()=>{
+            fetch(`http://localhost:8088/products`)
+            .then(res=>res.json())
+            .then((data)=>{
+                setProductList(data)
+            })
         })
         
         
@@ -39,6 +46,7 @@ export const ProductForm = () => {
         //need productTypeID:
         let productTypeId = 0//creating new variable that will hold productTypeId when new product is entered
         let newProductType ={} //this will be used for creating a new productType if user enters a product type that is not in the database
+       
 
         // //search among productTypes where productTypes are stored in DB. check whether the entered product type exists in the database
         const matchedProductType = productTypes.find((type)=>type.productType===product.type) ////product.type is the info the user typed into the type field. matchedProductType will be the existing productType that matches what the user entered, and will be "undefined" if the user entered something new
@@ -52,6 +60,13 @@ export const ProductForm = () => {
             newProductType.id = productTypeId
             newProductType.productType = product.type
         }
+
+        //create the new locationProduct
+        let newProductLocation ={
+            locationId: product.location,
+            productId: productList.length+1
+        }
+        console.log(newProductLocation)
 
         //create the object to be saved to the API
        const productToSendToAPI = {
@@ -85,7 +100,7 @@ export const ProductForm = () => {
     }
 
     const locationOptions =   locations.map((location) => {
-            return  <option key={location.id} value={location.name}>{location.name}</option>
+            return  <option key={location.id} value={location.id}>{location.name}</option>
         })
 
 
@@ -155,8 +170,12 @@ export const ProductForm = () => {
                 <div className="location-label">
                 <label htmlFor="locations">Choose a Location:</label>
                 </div>
-                    <select name="locations" id="locations">
-                        <option key={0} value="" selected>Choose a Location</option>
+                    <select name="locations" id="locations" onChange={(evt)=>{
+                        const copy = {...product}
+                        copy.location = evt.target.value
+                        setProduct(copy)
+                    }}>
+                        <option key={0} value="" >Choose a Location</option>
                         {locationOptions}
                     </select>
                 </div>
