@@ -156,6 +156,7 @@ export const ProductForm = () => {
                 <label htmlFor="locations">Choose a Location:</label>
                 </div>
                     <select name="locations" id="locations">
+                        <option key={0} value="" selected>Choose a Location</option>
                         {locationOptions}
                     </select>
                 </div>
