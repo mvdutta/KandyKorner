@@ -27,7 +27,7 @@ export const ProductList = ({ searchTermState }) => {
 
     useEffect(() => {
         if (topPriced) {
-        const topPricedProducts = products.filter((product) => product.price > 2.00 === true);
+        const topPricedProducts = products.filter((product) => product.price > 2.00);
         setFilteredProducts(topPricedProducts);
         } else {
             setFilteredProducts(products)
@@ -60,7 +60,10 @@ export const ProductList = ({ searchTermState }) => {
                 <section className="product-list" key={product.id}>
                 <h3 className="product-name">{product.name}</h3>
                 <p className="product-text">Price: ${product.price}</p>
+                { searchTermState === ""?
                 <p className="product-text">Type: {product.productType.productType}</p>
+                :""
+                }
                 </section> )
             } )
         }

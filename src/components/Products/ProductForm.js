@@ -8,14 +8,23 @@ export const ProductForm = () => {
         price: "",
         type: ""
     })
+    const [locations, setLocations] = useState([])
     //get productTypes from database
     const [productTypes, setProductTypes] = useState([])//make new useState variable to store productTypes
     useEffect(()=>{
-        fetch('http://localhost:8088/productTypes')//getting productTypes and storing them in productTypes
+        fetch('http://localhost:8088/productTypes')
         .then(res=>res.json())
         .then(data=>{
             setProductTypes(data)
+        }).then(() => {
+            fetch(`http://localhost:8088/locations`)
+            .then(res=>res.json())
+            .then(data=>{
+              setLocations(data)
+              console.log(locations)
+          })
         })
+        
         
     }, [])
   //Use the useNavigation() hook to redirect the user to the product list
@@ -74,6 +83,10 @@ export const ProductForm = () => {
             navigate("/products")
         })
     }
+
+    const locationOptions =   locations.map((location) => {
+            return  <option key={location.id} value={location.name}>{location.name}</option>
+        })
 
 
 
@@ -136,6 +149,18 @@ export const ProductForm = () => {
                             }
                         } />
                 </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                <div className="location-label">
+                <label htmlFor="locations">Choose a Location:</label>
+                </div>
+                    <select name="locations" id="locations">
+                        {locationOptions}
+                    </select>
+                </div>
+
+
             </fieldset>
             <button onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
                 className="button-form">
