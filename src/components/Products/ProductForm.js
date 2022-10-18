@@ -66,7 +66,7 @@ export const ProductForm = () => {
             locationId: product.location,
             productId: productList.length+1
         }
-        console.log(newProductLocation)
+        // console.log(newProductLocation)
 
         //create the object to be saved to the API
        const productToSendToAPI = {
@@ -81,6 +81,15 @@ export const ProductForm = () => {
                 "Content-Type":"application/json"
             },
             body: JSON.stringify(productToSendToAPI)
+        }).then(()=>{
+            fetch(`http://localhost:8088/productLocation`, {
+            method: "POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify(newProductLocation)
+        })
+
         })
         .then(()=>{
             //make another post request for a new productType (i.e. send "newProductType ") ONLY if the user entereed a product type that doesn't exist in the database, i.e. matchedProductType is "undefined"
