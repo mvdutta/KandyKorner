@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import "./Product.css"
 
 export const ProductForm = () => {
     //Add default properties to the initial state object: holds user input
@@ -172,9 +173,10 @@ export const ProductForm = () => {
             <fieldset>
                 <div className="form-group">
                 <div className="location-label">
-                <label htmlFor="locations">Choose a Location:</label>
+                <label className="location-option"htmlFor="locations">Choose a Location:</label>
                 </div>
-                    <select name="locations" id="locations" onChange={(evt)=>{
+                    <div>
+                    <select className="location-select form-input"name="locations" id="locations" onChange={(evt)=>{
                         const copy = {...product}
                         copy.location = evt.target.value
                         setProduct(copy)
@@ -182,6 +184,7 @@ export const ProductForm = () => {
                         <option key={0} value="" >Choose a Location</option>
                         {locationOptions}
                     </select>
+                </div>
                 </div>
 
 

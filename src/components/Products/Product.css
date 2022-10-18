@@ -72,3 +72,13 @@ display: block;
     letter-spacing: 1px;
     font-style: italic;   
 }
+.location-option {
+    font-size: 23px;
+}
+.location-select {
+    padding: 7px;
+    border-style: none;
+    border:1px solid rgb(14, 114, 119);
+    color: #7b7f84;
+    width: 15%;
+}

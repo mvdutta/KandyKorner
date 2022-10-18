@@ -16,7 +16,7 @@ export const EmployeeViews = () => {
                     <h1 className="kandy-header">Kandy Korner</h1>
                     <div className="kandy-subheader">Biggest Selection of Sweets in the South!</div>
 					<div>
-						<img src="images/candy-img4.png" className="welcome-img"/>
+						<img src="/images/candy-img4.png" className="welcome-img"/>
 					</div>
 					<div className="page-divider"></div>
                     <Outlet />

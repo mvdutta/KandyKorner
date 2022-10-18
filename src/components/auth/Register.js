@@ -7,7 +7,6 @@ export const Register = (props) => {
         email: "",
         fullName: "",
         isStaff: false,
-        isAdmin: false
     })
     let navigate = useNavigate()
 
@@ -25,7 +24,6 @@ export const Register = (props) => {
                     localStorage.setItem("kandy_user", JSON.stringify({
                         id: createdUser.id,
                         staff: createdUser.isStaff,
-                        admin: createdUser.isAdmin
                     }))
 
                     navigate("/")
