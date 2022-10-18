@@ -1,0 +1,36 @@
+.employees {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+}
+
+.employee {
+   padding: 0.9rem;
+   color: rgb(86, 33, 16, 0.85);
+   font-size: 22px;
+}
+.employee-link {
+    color: rgb(11, 104, 118);
+}
+.employeeHeader {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.employee__header {
+    font-size: larger;
+    font-weight: 700;
+    line-height: 3rem;
+}
+.employee__footer {
+    margin: 1rem 0 0.25rem 0;
+    font-style: oblique;
+}
+.employee-section {
+    width: 20%;
+    margin-top: 50px;
+}
