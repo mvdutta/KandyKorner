@@ -20,7 +20,8 @@ export const HiringForm = () => {
             fetch(`http://localhost:8088/employees?_expand=location&_expand=user`)
                 .then(res => res.json())
                 .then((data) => {
-                    setCurrentUsers(data)      
+                    setCurrentUsers(data) 
+                    console.log(data)     
                 })
 
         }, []
@@ -68,33 +69,56 @@ return (
                     required autoFocus
                     type="text"
                     className="form-input"
-                    placeholder="Enter product name"
+                    placeholder="Enter name"
 
                     />
             </div>
         </fieldset>
         <fieldset>
         <div className="form-group">
-                <label htmlFor="price" className="form-text">Price Per Unit:</label>
+                <label htmlFor="price" className="form-text">Start Date:</label>
                 <input
-                    required autoFocus
+                    required 
                     type="text"
                     className="form-input"
-                    placeholder="Enter price/unit"
+                    placeholder="Enter start date"
                  />
             </div>
         </fieldset>
         <fieldset>
         <div className="form-group">
-                <label htmlFor="type" className="form-text">Product Type:</label>
+                <label htmlFor="type" className="form-text">Pay Rate</label>
                 <input
-                    required autoFocus
+                    required 
                     type="text"
                     className="form-input"
-                    placeholder="Enter product type"
+                    placeholder="Enter pay rate"
                     />
             </div>
         </fieldset>
+        <fieldset>
+        <div className="form-group">
+                <label htmlFor="type" className="form-text">Email:</label>
+                <input
+                    type="email"
+                    className="form-input"
+                    placeholder="Enter email"
+                    />
+            </div>
+        </fieldset>
+        <fieldset>
+                <div className="form-group">
+                <div className="location-label">
+                <label htmlFor="locations">Choose a Location:</label>
+                </div>
+                    <select name="locations" id="locations">
+                        <option key={0} value="" >Choose a Location</option>
+
+                    </select>
+                </div>
+
+
+            </fieldset>
        
         <button onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
             className="button-form">
