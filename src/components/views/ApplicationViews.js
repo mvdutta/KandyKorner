@@ -1,4 +1,5 @@
 import { Outlet, Route, Routes } from "react-router-dom"
+import { HiringForm } from "../Employees/HiringForm"
 import { LocationList } from "../Locations/LocationList"
 import { ProductContainer } from "../Products/ProductContainer"
 import { ProductForm } from "../Products/ProductForm"
@@ -24,6 +25,7 @@ export const ApplicationViews = () => {
                 <Route path="locations" element={ <LocationList /> } />
 				<Route path="products" element={ <ProductContainer />} />
 				<Route path="addproduct" element={ <ProductForm /> } />
+				<Route path="hiring-form" element={ <HiringForm /> } />
             </Route>
         </Routes>
     
