@@ -5,6 +5,8 @@ import { HiringForm } from "../Employees/HiringForm"
 import { LocationList } from "../Locations/LocationList"
 import { ProductContainer } from "../Products/ProductContainer"
 import { ProductForm } from "../Products/ProductForm"
+import { CustomerList } from "../Customers/CustomerList"
+import { CustomerDetails } from "../Customers/CustomerDetails"
 
 //all routes are stored here. Default route path is /
 
@@ -28,6 +30,8 @@ export const EmployeeViews = () => {
 				<Route path="hiring-form" element={ <HiringForm /> } />
                 <Route path="employees" element={ <EmployeeList /> } />
                 <Route path="employees/:employeeId" element={ <EmployeeDetails/> }/>
+                <Route path="customers" element={ <CustomerList /> } />
+                <Route path="customers/:customerId" element={ <CustomerDetails/> }/>
             </Route>
         </Routes>
     
