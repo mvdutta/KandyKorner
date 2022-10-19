@@ -72,7 +72,7 @@ export const ProductForm = () => {
         //create the object to be saved to the API
        const productToSendToAPI = {
             name: product.name,
-            price: product.price,
+            price: +product.price,
             productTypeId: productTypeId
        }
         //Perform the fetch() to POST the object to the API
@@ -176,9 +176,9 @@ export const ProductForm = () => {
                 <label className="location-option"htmlFor="locations">Choose a Location:</label>
                 </div>
                     <div>
-                    <select className="location-select form-input"name="locations" id="locations" onChange={(evt)=>{
+                    <select className="location-select form-input" name="locations" id="locations" onChange={(evt)=>{
                         const copy = {...product}
-                        copy.location = evt.target.value
+                        copy.location = +evt.target.value
                         setProduct(copy)
                     }}>
                         <option key={0} value="" >Choose a Location</option>
