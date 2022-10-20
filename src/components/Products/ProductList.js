@@ -9,6 +9,7 @@ export const ProductList = ({ searchTermState }) => {
     const [topPriced, setTopPriced] = useState([false])
     const [productLocations, setProductLocations] = useState([])
     const [locations, setLocations] = useState([])
+    const [customers, setCustomers] = useState([])
     const navigate = useNavigate()//useNavigate is a hook that gives us a function to help with navigation. All we have to do is give it a path and it will navigate to that path
 
     const localKandyUser = localStorage.getItem("kandy_user");
@@ -60,6 +61,17 @@ export const ProductList = ({ searchTermState }) => {
         window.alert(locationString)
     }
 
+    useEffect(
+        () => {
+            fetch (`http://localhost:8088/customers`)
+                .then(res => res.json())
+                .then((customerArray) => {
+                    setCustomers(customerArray)
+                })
+        },[]
+    )
+
+
     return (       
     <>
     {kandyUserObject.staff
@@ -81,7 +93,26 @@ export const ProductList = ({ searchTermState }) => {
                 <p className="product-text">Price: ${product.price}</p>
                 { searchTermState === ""?<>
                 <p className="product-text">Type: {product.productType.productType}</p>
-                <button className= "purchase-button">Purchase</button>
+                <button className= "purchase-button"
+                    onClick={()=>{
+                        return fetch(`http://localhost:8088/purchases`, {
+                        method: "POST",
+                        headers:{
+                        "Content-Type":"application/json"
+                        },
+                        body: JSON.stringify({
+                            customerId: kandyUserObject.id,
+                            productId: product.id,
+                            units: 0
+                        })
+                     })
+                    .then(res => res.json())
+                    .then(() => {
+                        window.alert("data posted")
+                    })
+                }}
+
+                >Purchase</button>
                 </>
                 :""
                 }
