@@ -110,7 +110,7 @@ return (
                 <label htmlFor="payRate" className="form-text">Pay Rate</label>
                 <input
                     required 
-                    type="Number"
+                    type="number"
                     className="form-input"
                     placeholder="Enter pay rate"
                     onChange={(evt) => {
