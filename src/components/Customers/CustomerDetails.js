@@ -23,7 +23,6 @@ export const CustomerDetails = () => {
             fetch(`http://localhost:8088/customers?_expand=user&userId=${customerId}`)//getting customerId from the route parameter
             .then(res => res.json())
             .then((data) => {
-                 console.log(data)
                 const singleCustomer = data[0]
                 setCustomers(singleCustomer)
                 setLoyalty(singleCustomer.loyaltyNum)
@@ -63,7 +62,6 @@ export const CustomerDetails = () => {
     <section className="customer customer-section">
     <header className="customer__header">{customer?.user?.fullName}</header>
     <div className="customer-text">Email: {customer?.user?.email}</div>
-    {/* <input className="customer-text">Loyalty Number: {customer.loyaltyNum}</input> */}
     <label className="customer-text" htmlFor="loyaltyNum">Loyalty Number:</label>
     <input type="Number" className="loyalty-input"  value= {loyalty} 
     onChange={

@@ -82,3 +82,8 @@ display: block;
     color: #7b7f84;
     width: 15%;
 }
+.purchase-button {
+    width: 17%;
+    font-size: 16px;
+    padding: 2px;
+}

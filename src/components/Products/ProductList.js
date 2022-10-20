@@ -17,12 +17,6 @@ export const ProductList = ({ searchTermState }) => {
 
   
     useEffect (() => {
-    //     fetch(`http://localhost:8088/products?_sort=name&_order=asc&_expand=productType`)
-    //     .then((res) => res.json())
-    //     .then((productsArr) => {//once the products have been retrieved...
-    //         setProducts(productsArr)//store them in the products state variable
-    //         setFilteredProducts(productsArr)//And also store them in filteredProducts
-    // })
             const fetches = [
                 fetch(`http://localhost:8088/products?_sort=name&_order=asc&_expand=productType`).then((res) => res.json()),
                 fetch(`http://localhost:8088/productLocation`).then((res) => res.json()),
@@ -65,6 +59,7 @@ export const ProductList = ({ searchTermState }) => {
         }
         window.alert(locationString)
     }
+
     return (       
     <>
     {kandyUserObject.staff
@@ -84,8 +79,10 @@ export const ProductList = ({ searchTermState }) => {
                 className="product-link"><Link to="" onClick={() => {handleClick(product.id)}}>Show me where</Link></span>}</h3>
                
                 <p className="product-text">Price: ${product.price}</p>
-                { searchTermState === ""?
+                { searchTermState === ""?<>
                 <p className="product-text">Type: {product.productType.productType}</p>
+                <button className= "purchase-button">Purchase</button>
+                </>
                 :""
                 }
                 </section> )
