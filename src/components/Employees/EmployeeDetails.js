@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
+import "./Employee.css"
 
 //component to capture all details of an individual employee. this component should only be displayed when the route matches employee/employeeId and this is where we will capture that employeeId, using the hook in react router DOM called useParams
 export const EmployeeDetails = () => {
     const {employeeId} = useParams()//pulls in that object created from route parameters and then can extract any variable that you define. 
     //we want to display all the details about an employee so need a new state variable:
     const [employee, setEmployee] = useState([])
+    const navigate = useNavigate()
 
     //employeeId above is the state that we are getting from the route. Need a useEffect to observe when that state changes:
     useEffect(
@@ -31,5 +33,17 @@ export const EmployeeDetails = () => {
     <div className="employee-text">Start Date: {employee.startDate}</div>
     <div className="employee-text">Rate: ${employee.payRate} /hr</div>
     <footer className="employee__footer">Currently working at our {employee?.location?.name} location</footer>
+    <button className="fire-button" 
+        onClick={()=> {
+            fetch(`http://localhost:8088/users/${employeeId}`, {
+                method: "DELETE"
+            })
+            .then(() => {
+                navigate("/employees")
+            })
+        }}
+    
+    
+    >Fire Employee</button>
     </section>
 }

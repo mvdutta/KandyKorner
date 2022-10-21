@@ -95,6 +95,7 @@ export const ProductList = ({ searchTermState }) => {
                 </>
                 :""    
                 }
+                {!kandyUserObject.staff ?
                 <button className= "purchase-button"
                     onClick={()=>{
                         return fetch(`http://localhost:8088/purchases`, {
@@ -110,10 +111,9 @@ export const ProductList = ({ searchTermState }) => {
                      })
                     .then(res => res.json())
                     .then(() => {
-                        window.alert("data posted")
                     })
                 }}
-                >Purchase</button>
+                >Purchase</button>:""}
                 </section> )
             } )
         }
