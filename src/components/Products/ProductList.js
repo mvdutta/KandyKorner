@@ -89,10 +89,12 @@ export const ProductList = ({ searchTermState }) => {
                 <section className="product-list" key={product.id}>
                 <h3 className="product-name">{product.name}  { searchTermState === ""? "": <span
                 className="product-link"><Link to="" onClick={() => {handleClick(product.id)}}>Show me where</Link></span>}</h3>
-               
                 <p className="product-text">Price: ${product.price}</p>
                 { searchTermState === ""?<>
                 <p className="product-text">Type: {product.productType.productType}</p>
+                </>
+                :""    
+                }
                 <button className= "purchase-button"
                     onClick={()=>{
                         return fetch(`http://localhost:8088/purchases`, {
@@ -111,11 +113,7 @@ export const ProductList = ({ searchTermState }) => {
                         window.alert("data posted")
                     })
                 }}
-
                 >Purchase</button>
-                </>
-                :""
-                }
                 </section> )
             } )
         }

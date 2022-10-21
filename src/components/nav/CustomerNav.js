@@ -12,7 +12,10 @@ export const CustomerNav = () => {
             </li>
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/products">Products</Link>
-            </li>          
+            </li>  
+            <li className="navbar__item active">
+                <Link className="navbar__link" to="/purchases">My Orders</Link>
+            </li>               
         {
             <li className="navbar__item navbar__logout">
                 <Link className="navbar__link" to="" onClick={() => {
